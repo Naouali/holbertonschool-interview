@@ -11,8 +11,10 @@ def canUnlockAll(boxes):
     locked = [1] + [0] * (len(boxes) - 1)
     if len(boxes) == 1:
         return True
+    if len(boxes) == 0:
+        return False
 
-    if type(boxes) is not list:
+    if type(boxes) != list:
         return False
     for box in boxes:
         for item in box:
