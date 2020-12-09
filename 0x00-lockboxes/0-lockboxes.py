@@ -9,6 +9,9 @@ def canUnlockAll(boxes):
     function to unlock boxes
     """
     locked = [1] + [0] * (len(boxes) - 1)
+    if len(boxes) == 1:
+        return True
+
     if type(boxes) is not list:
         return False
     for box in boxes:
