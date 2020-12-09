@@ -9,7 +9,8 @@ def canUnlockAll(boxes):
     function to unlock boxes
     """
     locked = [1] + [0] * (len(boxes) - 1)
-
+    if type(boxes) is not list:
+        return False
     for box in boxes:
         for item in box:
             if type(item) is int:
