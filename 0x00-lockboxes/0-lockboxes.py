@@ -13,7 +13,6 @@ def canUnlockAll(boxes):
         return True
     if len(boxes) == 0:
         return False
-
     if type(boxes) != list:
         return False
     for box in boxes:
@@ -23,6 +22,8 @@ def canUnlockAll(boxes):
                     locked[item] = 1
             else:
                 return False
-    if 0 in locked[:-1]:
+    while locked[-1] == 0:
+        locked.pop()
+    if 0 in locked:
         return False
     return True
