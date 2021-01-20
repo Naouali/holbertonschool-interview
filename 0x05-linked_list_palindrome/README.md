@@ -1,1 +1,1 @@
-Linked list palandriome
+Linked list palandriome algorithm
