@@ -11,6 +11,7 @@ i = 0
 status = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0,
           "404": 0, "504": 0, "500": 0}
 for line in sys.stdin:
+    i += 1
     if line == "":
         pass
     try:
@@ -18,7 +19,6 @@ for line in sys.stdin:
         stat = line.split()[-2]
     except:
         pass
-    i += 1
     for k in status:
         if stat == k:
             status[k] += 1
@@ -27,5 +27,5 @@ for line in sys.stdin:
         print("File size: {}".format(size))
         for k in sorted(status):
             if status[k] != 0:
-                print("{} : {}".format(k, status[k]))
+                print("{}: {}".format(k, status[k]))
         i = 0
