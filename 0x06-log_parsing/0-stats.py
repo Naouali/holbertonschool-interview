@@ -21,10 +21,9 @@ for line in sys.stdin:
         if stat == k:
             status[k] += 1
 
-    if i == 9:
+    if i == 10:
         print("File size: {}".format(size))
         for k in sorted(status):
             if status[k] != 0:
                 print("{} : {}".format(k, status[k]))
-    if i == 10:
         i = 0
