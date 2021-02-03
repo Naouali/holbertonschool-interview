@@ -24,6 +24,7 @@ for line in sys.stdin:
     if i == 9:
         print("File size: {}".format(size))
         for k in status:
-            print("{} : {}".format(k, status[k]))
+            if status[k] != 0:
+                print("{} : {}".format(k, status[k]))
     if i == 10:
         i = 0
