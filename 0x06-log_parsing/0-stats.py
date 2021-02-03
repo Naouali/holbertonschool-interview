@@ -23,7 +23,7 @@ for line in sys.stdin:
 
     if i == 9:
         print("File size: {}".format(size))
-        for k in status:
+        for k in sorted(status):
             if status[k] != 0:
                 print("{} : {}".format(k, status[k]))
     if i == 10:
