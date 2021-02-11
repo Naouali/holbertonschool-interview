@@ -11,10 +11,10 @@
 
 int check_cycle(listint_t *list)
 {
-    listint_t *f, *s = malloc(sizeof(listint_t));
+    listint_t *f, *s;
     f = list;
     s = list;
-    while(f && s && f->next != NULL)
+    while(f && s && f->next)
     {
         s = s->next;
         f = f->next->next;
