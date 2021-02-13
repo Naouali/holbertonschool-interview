@@ -11,9 +11,10 @@ int is_palindrome(listint_t **head)
 {
     int len = 0;
     listint_t *h = malloc(sizeof(listint_t));
-    h = *head;
     int *arr1 = malloc(sizeof(int) * len/2);
     int i, j, pal;
+    h = *head;
+    
     while (h != NULL)
     {
         h = h->next;
