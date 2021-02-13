@@ -4,7 +4,6 @@ Minimim operations
 """
 
 
-
 def minOperations(n):
     """
     minimum ops
