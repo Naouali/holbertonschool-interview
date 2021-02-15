@@ -53,7 +53,7 @@ void print_grid(int grid[3][3])
 /**
  * sandpiles_sum - function to sum sindpiles
  * @grid1: grid1
- * grid2: grid2
+ * @grid2: grid2
  * Return: sum of to sandpiles
  */
 
