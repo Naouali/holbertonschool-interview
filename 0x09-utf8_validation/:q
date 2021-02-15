@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+"""
+Utf 8 validation
+"""
+
+
+def validUTF8(data):
+    """
+    validate utf8 data
+    """
+    Binaries = []
+    for item in data:
+        Binaries.append(bin(item)[2:])
+    for item in Binaries:
+        if item[0] != "0":
+            return False
+    return True
