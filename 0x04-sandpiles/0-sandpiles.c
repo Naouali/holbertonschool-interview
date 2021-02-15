@@ -2,6 +2,13 @@
 #include <stdio.h>
 
 
+/**
+ * stable - function to check if a sandpile is stable
+ * @grid: grid to be checked
+ * Return: 0 if stable else 1
+ */
+
+
 int stable(int grid[3][3])
  {
      int i, j;
@@ -19,6 +26,13 @@ int stable(int grid[3][3])
      return (0);
  } 
 
+/**
+ * print_grid - function to print cool grid
+ * @grid: grid to be printed
+ * Return: void
+ */
+
+
 void print_grid(int grid[3][3])
 {
 	int i, j;
@@ -35,6 +49,15 @@ void print_grid(int grid[3][3])
     
 	}
 }
+
+/**
+ * sandpiles_sum - function to sum sindpiles
+ * @grid1: grid1
+ * grid2: grid2
+ * Return: sum of to sandpiles
+ */
+
+
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
     int i, j;
