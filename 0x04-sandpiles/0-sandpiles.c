@@ -30,7 +30,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
             grid1[i][j] += grid2[i][j];
         }
     }
-    if (stable(grid1) == 1)
+    while (stable(grid1) == 1)
     {
         for(i = 0; i < 3; i++)
         {
@@ -38,9 +38,11 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
             {
                 if (grid1[i][j] > 3 )
                 {
-                    grid1[i][j] = 0;
-                    grid1[i][j + 1] += 1;
-                    grid1[i + 1][j] += 1;
+                    grid1[i][j] -= 4;
+                    if (j + 1 < 3)
+                        grid1[i][j + 1] += 1;
+                    if (i + 1 < 3)
+                        grid1[i + 1][j] += 1;
                     if (i)
                         grid1[i -1][j] += 1;
                     if (j)
