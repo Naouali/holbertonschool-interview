@@ -13,6 +13,7 @@ i = 0
 status = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0,
           "404": 0, "504": 0, "500": 0}
 
+
 def print_line(status, size):
     print("File size: {}".format(size))
     for k in sorted(status.keys()):
@@ -38,3 +39,4 @@ for line in sys.stdin:
 
 else:
     print_line(status, size)
+    i = 0
