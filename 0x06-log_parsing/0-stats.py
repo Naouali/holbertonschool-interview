@@ -19,6 +19,7 @@ def print_line(status, size):
         if status[k] != 0:
             print("{}: {}".format(k, status[k]))
 
+
 for line in sys.stdin:
     i += 1
     l = line.split(" ")
@@ -31,9 +32,9 @@ for line in sys.stdin:
     except:
         pass
 
-    if i % 10 == 0:
+    if i == 10:
         print_line(status, size)
+        i = 0
 
 else:
     print_line(status, size)
-
