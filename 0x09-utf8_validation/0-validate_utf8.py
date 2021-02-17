@@ -19,4 +19,3 @@ def validUTF8(data):
         if 245 <= int(item, 2) <= 255:
             return False
     return True
-
