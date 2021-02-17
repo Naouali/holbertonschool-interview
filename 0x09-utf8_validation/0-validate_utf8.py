@@ -8,6 +8,8 @@ def validUTF8(data):
     """
     validate utf8 data
     """
+    if data is None:
+        return False
     Binaries = []
     for item in data:
         Binaries.append(bin(item)[2:])
