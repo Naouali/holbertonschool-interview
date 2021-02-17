@@ -12,6 +12,8 @@ def validUTF8(data):
         return False
     Binaries = []
     for item in data:
+        if type(item) != int:
+            return False
         Binaries.append(bin(item)[2:])
     for item in Binaries:
         if len(item) > 7:
