@@ -2,7 +2,7 @@
 """
 Utf 8 validation
 """
-import sys
+
 
 def validUTF8(data):
     """
