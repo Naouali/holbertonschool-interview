@@ -3,6 +3,7 @@
 lockboxes
 """
 
+
 def indexmatch(aList):
     """
     if the element is equal to it's index, return True, else return false
@@ -14,15 +15,12 @@ def indexmatch(aList):
     return False
 
 
-
-
 def canUnlockAll(boxes):
     """
     Method to unlock check if boxes are unlocked or locked
     return True if they can be unlocked, otherwise return false
     """
     reference = [0] * (len(boxes))
-    
     for boxe in boxes:
         for keys in boxe:
             if keys >= len(boxes):
@@ -31,22 +29,6 @@ def canUnlockAll(boxes):
                 continue
             else:
                 reference[keys] += 1
-    
     if 0 in reference[1:]:
         return False
     return True
-    
-
-
-
-
-
-
-
-
-
-
-
-
-   
-  
