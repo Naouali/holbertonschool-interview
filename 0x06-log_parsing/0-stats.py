@@ -43,9 +43,8 @@ for line in sys.stdin:
     total_size += size
     counter += 1
 
-    if counter < 10:
+    if counter <= 10:
         compute_Status(status)
-            
     else:
         print("File size: {}".format(total_size))
         print_status(Status_code)
