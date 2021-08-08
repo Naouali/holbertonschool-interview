@@ -12,6 +12,7 @@ def check_format(line):
     """
     check input format, if wrong pass it
     from generator code, it's not possible to generate format erros
+    but holberton is changing the output manually
     """
     output = line.split(" ")
     status = int(output[-2])
@@ -41,10 +42,11 @@ counter = 0
 for line in sys.stdin:
     size, status = check_format(line)
     total_size += size
-    counter += 1
+    
 
     if counter <= 10:
         compute_Status(status)
+        counter += 1
     else:
         print("File size: {}".format(total_size))
         print_status(Status_code)
