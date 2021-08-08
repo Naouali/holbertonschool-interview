@@ -1,42 +1,52 @@
 #!/usr/bin/python3
 """
-stats code
+Script to read from stdout and make math
 """
-
-
 import sys
-import re
-check = __import__("check").check
 
-size = 0
-i = 0
-status = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0,
-          "404": 0, "504": 0, "500": 0}
+Status_code = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0,
+          404: 0, 504: 0, 500: 0}
+ordered_statsus = [200, 301, 400, 401, 403, 404, 405, 500]
 
+def check_format(line):
+    """
+    check input format, if wrong pass it
+    from generator code, it's not possible to generate format erros
+    """
+    output = line.split(" ")
+    status = int(output[-2])
+    size = int(output[-1])
+    return size, status
 
-def print_line(status, size):
-    print("File size: {}".format(size))
-    for k in sorted(status.keys()):
-        if status[k] != 0:
-            print("{}: {}".format(k, status[k]))
+    
+def compute_Status(status):
+    """
+    After every 10 lines and/or a keyboard interruption (CTRL + C), print these statistics from the beginning
+    """
+    global Status_code
+    for keys in Status_code:
+        if keys == status:
+            Status_code[keys] += 1
+     
+def print_status(dict):
+    """
+    Loop throught dictionay and print item sorted, and if they are diifrent than zero
+    """
+    for k in dict:
+        if dict[k] != 0:
+            print("{}: {}".format(k, dict[k]))
 
-
+total_size = 0
+counter = 0
 for line in sys.stdin:
-    i += 1
-    l = line.split(" ")
-    try:
-        stat = l[-2]
-        size += int(l[-1])
+        size, status = check_format(line)
+        total_size += size
+        counter += 1
+        if counter < 10:
+            compute_Status(status)
+            
+        if counter == 10 or KeyboardInterrupt:
+            print("File size: {}".format(total_size))
+            print_status(Status_code)
 
-        if stat in status:
-            status[stat] += 1
-    except:
-        pass
-
-    if i == 10:
-        print_line(status, size)
-        i = 0
-
-else:
-    print_line(status, size)
-    i = 0
+            counter = 0
