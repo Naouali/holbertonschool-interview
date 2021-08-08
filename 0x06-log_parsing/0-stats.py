@@ -39,14 +39,14 @@ def print_status(dict):
 total_size = 0
 counter = 0
 for line in sys.stdin:
-        size, status = check_format(line)
-        total_size += size
-        counter += 1
-        if counter < 10:
-            compute_Status(status)
-            
-        if counter == 10 or KeyboardInterrupt:
-            print("File size: {}".format(total_size))
-            print_status(Status_code)
+    size, status = check_format(line)
+    total_size += size
+    counter += 1
 
-            counter = 0
+    if counter < 10:
+        compute_Status(status)
+            
+    else:
+        print("File size: {}".format(total_size))
+        print_status(Status_code)
+        counter = 0
